@@ -1,0 +1,271 @@
+:root {
+  --bg: #020617;
+  --card: rgba(255, 255, 255, 0.08);
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --accent: #38bdf8;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  background: radial-gradient(circle at top, #020617, #000);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* Background glow */
+.bg-glow {
+  position: fixed;
+  top: -200px;
+  left: 50%;
+  width: 600px;
+  height: 600px;
+  background: #38bdf8;
+  opacity: 0.15;
+  filter: blur(200px);
+  transform: translateX(-50%);
+  z-index: -1;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 120px 20px;
+}
+
+.hero h1 {
+  font-size: 3.2rem;
+  letter-spacing: -1px;
+}
+
+.hero p {
+  margin-top: 15px;
+  color: var(--muted);
+}
+
+.hero-buttons {
+  margin-top: 30px;
+}
+
+.hero-buttons a {
+  display: inline-block;
+  margin: 0 10px;
+  padding: 12px 24px;
+  border-radius: 999px;
+  text-decoration: none;
+  color: #000;
+  background: var(--accent);
+  font-weight: 600;
+}
+
+.hero-buttons .outline {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+}
+
+/* SECTIONS */
+.section {
+  max-width: 1000px;
+  margin: auto;
+  padding: 80px 20px;
+}
+
+.section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+}
+
+/* PROJECT GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: var(--card);
+  backdrop-filter: blur(10px);
+  padding: 25px;
+  border-radius: 18px;
+  transition: transform 0.3s ease, border 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  border-color: var(--accent);
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 40px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* FADE ANIMATION */
+.fade {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.fade.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.section-head a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.hero.small {
+  padding: 80px 20px;
+}
+
+.hero-with-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 50% 25%;
+
+  margin-bottom: 20px;
+  border: 2px solid var(--accent);
+}
+
+.card a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Fix card links (projects on home page) */
+.card {
+  color: var(--text);
+}
+
+.card:link,
+.card:visited {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.card:hover {
+  color: var(--text);
+}
+
+/* Back button (top-left navigation) */
+.back-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(6px);
+  transition: background 0.3s ease, transform 0.2s ease;
+  z-index: 1000;
+}
+
+.back-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateX(-3px);
+}
+
+/* .social-links {
+  margin-top: 20px;
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+}
+
+.social-links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.social-links a:hover {
+  color: var(--accent);
+  transform: translateY(-2px);
+} */
+
+.social-links {
+  margin-top: 22px;
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.social-links a:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-2px);
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+  fill: var(--text);
+  transition: fill 0.3s ease;
+}
+
+.social-links a:hover .icon {
+  fill: var(--accent);
+}
+
+/* Cards that are links (Skills / Certifications) */
+a.card {
+  text-decoration: none;
+  color: var(--text);
+}
+
+a.card h3,
+a.card p {
+  color: var(--text);
+}
+
+a.card:hover h3 {
+  color: var(--accent);
+}
+
+
